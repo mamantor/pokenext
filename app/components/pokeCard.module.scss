@@ -1,0 +1,48 @@
+.frost_container {
+  padding: 50px;
+  margin: 50px;
+  background: inherit;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+  width: auto;
+}
+
+.frost_container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.774);
+  filter: blur(10px);
+  background: inherit;
+}
+
+.pokemon_title {
+  width: 100%;
+  font-family: "japanese", sans-serif;
+}
+
+.pokemon_flavorText {
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  font-size: large;
+  font-family: "IBM Plex Mono", sans-serif;
+}
+
+@font-face {
+  font-family: "Japanese";
+  src: url("./fonts/japanese.ttf") format("truetype");
+}
+
+.pokemon__genera {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-style: italic;
+  font-size: 0.8rem;
+}

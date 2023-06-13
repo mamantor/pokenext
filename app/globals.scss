@@ -1,0 +1,7 @@
+@use '@carbon/react' with (
+  $use-flexbox-grid: true
+);
+
+body {
+  margin: 0;
+}
