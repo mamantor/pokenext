@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./pokeCard.module.scss";
 import { capitalize } from "../lib/helpers";
-import { Tag, FlexGrid, Row, Column, Content } from "@carbon/react";
+import { Tag, FlexGrid, Row, Column } from "@carbon/react";
 import PokeMoves from "./pokeMoves";
+import PokeStats from "./pokeStats";
 
 function formatMoves(pokemon: pokemonInterface): pokeMove[] {
   const redBlueMoves = pokemon.moves
@@ -192,6 +193,9 @@ export default function PokeCard({ selectedId }: { selectedId: string }) {
         <Row>
           <Column lg={8}>
             <PokeMoves moves={pokeMoves} />
+          </Column>
+          <Column lg={8}>
+            <PokeStats pokeStats={pokemon.stats}/>
           </Column>
         </Row>
       </FlexGrid>
