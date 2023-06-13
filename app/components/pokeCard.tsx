@@ -125,64 +125,75 @@ export default function PokeCard({ selectedId }: { selectedId: string }) {
   return (
     <div style={gradientStyle}>
       <FlexGrid style={{ maxHeight: "100vh", overflow: "hidden" }}>
-          <Row>
-            <Column>
-              <div className={styles.frost_container}>
-                <Row fullwidth="true">
-                  <Column lg={16}>
-                    <h1 className={styles.pokemon_title}>
-                      {capitalize(pokemon.name)}
-                    </h1>
-                    <p className={styles.pokemon__genera}>
-                      {pokemonFlavorText.genera}
-                    </p>
-                  </Column>
-                </Row>
-                <Row>
-                  <Column>
-                    {pokemon.sprites ? (
-                      <Image
-                        width={250}
-                        height={250}
-                        alt={`${pokemon.name} illustration`}
-                        src={
-                          pokemon.sprites?.other["official-artwork"]
-                            .front_default
-                        }
-                      ></Image>
-                    ) : (
-                      ""
-                    )}
-                  </Column>
-                  <Column>
-                    <div className={styles.pokemon_types}>
-                      {pokemon.typesArray
-                        ? pokemon.typesArray.map((t) => (
-                            <Tag
-                              key={t}
-                              style={{
-                                backgroundColor: bgTypeColor[t],
-                                boxShadow: "inset 0 0 100px rgba(0, 0, 0, 0.1)",
-                              }}
-                            >
-                              {capitalize(t)}
-                            </Tag>
-                          ))
-                        : ""}
-                    </div>
-                    <p className={`${styles.pokemon_flavorText}`}>
-                      {pokemonFlavorText.description}
-                    </p>
-                  </Column>
-                </Row>
-              </div>
-            </Column>
-          </Row>
-          <Row>
-            <Column lg={8}>
-              <PokeMoves moves={pokeMoves} />
-            </Column>
-          </Row>
+        <Row>
+          <Column>
+            <div className={styles.frost_container}>
+              <Row>
+                <Column>
+                  <Row fullwidth="true">
+                    <Column lg={16}>
+                      <h1 className={styles.pokemon_title}>
+                        {capitalize(pokemon.name)}
+                      </h1>
+                      <p className={styles.pokemon__genera}>
+                        {pokemonFlavorText.genera}
+                      </p>
+                    </Column>
+                  </Row>
+                  <Row>
+                    <Column>
+                      {pokemon.sprites ? (
+                        <div className={styles.image_container}>
+                          <Image
+                            className={styles.image}
+                            fill
+                            alt={`${pokemon.name} illustration`}
+                            src={
+                              pokemon.sprites?.other["official-artwork"]
+                                .front_default
+                            }
+                          ></Image>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </Column>
+                  </Row>
+                </Column>
+                <Column style={{ display: "flex", alignItems: "center" }}>
+                  <Row>
+                    <Column>
+                      <div className={styles.pokemon_types}>
+                        {pokemon.typesArray
+                          ? pokemon.typesArray.map((t) => (
+                              <Tag
+                                key={t}
+                                style={{
+                                  backgroundColor: bgTypeColor[t],
+                                  boxShadow:
+                                    "inset 0 0 100px rgba(0, 0, 0, 0.1)",
+                                }}
+                              >
+                                {capitalize(t)}
+                              </Tag>
+                            ))
+                          : ""}
+                      </div>
+                      <p className={`${styles.pokemon_flavorText}`}>
+                        {pokemonFlavorText.description}
+                      </p>
+                    </Column>
+                  </Row>
+                </Column>
+              </Row>
+            </div>
+          </Column>
+        </Row>
+        <Row>
+          <Column lg={8}>
+            <PokeMoves moves={pokeMoves} />
+          </Column>
+        </Row>
       </FlexGrid>
     </div>
   );

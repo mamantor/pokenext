@@ -1,6 +1,8 @@
 .frost_container {
-  padding: 50px;
-  margin: 50px;
+  max-height:60vh;
+
+  padding: 10px;
+  margin: 30px;
   background: inherit;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -45,4 +47,15 @@
   font-family: "IBM Plex Mono", sans-serif;
   font-style: italic;
   font-size: 0.8rem;
+}
+
+
+.image_container {
+  height: 250px;
+}
+
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
 }
